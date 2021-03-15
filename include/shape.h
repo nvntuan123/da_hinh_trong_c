@@ -7,7 +7,12 @@ struct ShapeVtbl;
 
 struct Shape
 {
-    struct ShapeVtbl const* VPtr; // Virtual pointer(con trỏ ảo).
+    /*
+    1. Kiến thức về con trỏ(đặc là bộ nhớ và kích thước).
+    2. Kiến về con trỏ hằng.
+    3. Kiến thức sâu về struct(đặc là struct liên quan đến biến con trỏ).
+    */
+    struct ShapeVtbl const* VPtr; // Virtual pointer(con trỏ ảo). Con trỏ hằng.
     int IX;
     int IY;
 };
