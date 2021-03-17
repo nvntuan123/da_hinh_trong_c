@@ -48,4 +48,7 @@ static inline void shapeDraw(const SHAPE* const THIS)
     return ((*THIS->VPtr->draw)(THIS));
 }
 
+SHAPE const* areaMax(SHAPE const*[], int);
+void drawAllShape(SHAPE const*[], int);
+
 #endif
