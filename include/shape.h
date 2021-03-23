@@ -38,6 +38,9 @@ struct ShapeVtbl
 void shapeCTor(SHAPE* const, int, int); // Tham số đầu tiên là hằng con trỏ.
 void shapeMoveBy(SHAPE* const, int, int);
 
+int shapeGetX(SHAPE* const);
+int shapeGetY(SHAPE* const);
+
 static inline int shapeArea(SHAPE const* const THIS)
 {
     return ((*THIS->VPtr->area)(THIS));

@@ -12,6 +12,16 @@ void rectangleCtor(RECTANGLE* const RTHIS, int IX_T, int IY_T, int IWidth_T, int
     RTHIS->IHeight = IHeight_T;
 }
 
+int getW(RECTANGLE* const RTHIS)
+{
+    return RTHIS->IWidth;
+}
+
+int getH(RECTANGLE* const RTHIS)
+{
+    return RTHIS->IHeight;
+}
+
 static inline int rectangleArea(SHAPE const* const THIS)
 {
     RECTANGLE const* const RTHIS = (RECTANGLE const*)THIS;

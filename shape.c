@@ -16,6 +16,16 @@ void shapeCTor(SHAPE* const THIS, int IX_T, int IY_T)
     THIS->IY = IY_T;
 }
 
+int shapeGetX(SHAPE* const THIS)
+{
+    return THIS->IX;
+}
+
+int shapeGetY(SHAPE* const THIS)
+{
+    return THIS->IY;
+}
+
 void shapeMoveBy(SHAPE* const THIS, int IX_T, int IY_T)
 {
     THIS->IX += IX_T;

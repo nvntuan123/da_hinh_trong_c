@@ -20,6 +20,9 @@ typedef struct Rectangle RECTANGLE;
 
 void rectangleCtor(RECTANGLE* const, int, int, int, int);
 
+int getW(RECTANGLE* const);
+int getH(RECTANGLE* const);
+
 static inline int rectangleArea(SHAPE const* const);
 
 static inline void rectangleDraw(const SHAPE* const);
