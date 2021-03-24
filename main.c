@@ -43,7 +43,7 @@ int main()
     rectangleCtor(&r2, 5, 6, 8, 9);
 
     sp = areaMax(ShapeArr, sizeof(ShapeArr) / sizeof(ShapeArr[0]));
-    printf("Hinh co dien tich lon nhat:\nx = %d, y = %d", shapeGetX(sp), shapeGetY(sp));
+    printf("Hinh co dien tich lon nhat:\nx = %d, y = %d", shapeGetX(&sp), shapeGetY(&sp));
 
     // int IValue = 6;
     // int* IPtr = &IValue;
