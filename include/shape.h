@@ -27,7 +27,7 @@ struct ShapeVtbl
 	    virtual void draw() = 0; // Hàm thuần ảo vẽ hình.
     */
 
-    int (*area)(SHAPE const*); // area là con trỏ hàm và có tham số đầu vào là con trỏ hằng.
+    int (*area)(SHAPE const* const); // area là con trỏ hàm và có tham số đầu vào là con trỏ hằng.
     void (*draw)(SHAPE const* const); // draw là con trỏ hàm và có tham số đầu vào là 
 }; // ShapeVtbl => Shape Virtual Table(là bảng con trỏ ảo).
 
@@ -38,14 +38,17 @@ struct ShapeVtbl
 void shapeCTor(SHAPE* const, int, int); // Tham số đầu tiên là hằng con trỏ.
 void shapeMoveBy(SHAPE* const, int, int);
 
+int shapeGetX(SHAPE* const);
+int shapeGetY(SHAPE* const);
+
 static inline int shapeArea(SHAPE const* const THIS)
 {
     return ((*THIS->VPtr->area)(THIS));
 }
 
-static inline void shapeDraw(const SHAPE* const THIS)
+static inline void shapeDraw(SHAPE const* const THIS)
 {
-    return ((*THIS->VPtr->draw)(THIS));
+    (*THIS->VPtr->draw)(THIS);
 }
 
 SHAPE const* areaMax(SHAPE const*[], int);

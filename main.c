@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h> // malloc <=> new
 
 #include "include/rectangle.h"
 
@@ -25,6 +25,10 @@ int main()
 
     sp nó là biến thường => nó giống với biến IA.
     Nhưng sẽ khác 1 chỗ là về phần giá trị của nó, vì sp có kiểu dữ liệu struct do dev tự định nghĩa(SHAPE) => giá trị của nó sẽ lưu nhiều phần chứ không phải lưu 1 số như biến IA
+
+    a[0], a[1] là biến con trỏ.
+    vùng nhớ của a[0] là địa chỉ của biến spBase thuộc r1. Nói đúng hơn a[0] nó đang trỏ tới biến r1.spBase.
+
     */
     //shapeCTor(&sp, 1, 2); // Hàm constructor của Shape.
 
@@ -39,7 +43,7 @@ int main()
     rectangleCtor(&r2, 5, 6, 8, 9);
 
     sp = areaMax(ShapeArr, sizeof(ShapeArr) / sizeof(ShapeArr[0]));
-    printf("Hinh co dien tich lon nhat:\nx = %d, y = %d");
+    printf("Hinh co dien tich lon nhat:\nx = %d, y = %d", shapeGetX(&sp), shapeGetY(&sp));
 
     // int IValue = 6;
     // int* IPtr = &IValue;

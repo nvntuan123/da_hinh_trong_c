@@ -1,9 +1,9 @@
-#include "shape.h"
+#include "include/shape.h"
 #include "assert.h"
 
 // Tham số là con trỏ hằng.
-static int shape_Area_(const SHAPE* const);
-static void shape_Draw_(const SHAPE* const);
+static int shape_Area_(SHAPE const* const);
+static void shape_Draw_(SHAPE const* const);
 
 void shapeCTor(SHAPE* const THIS, int IX_T, int IY_T)
 {
@@ -16,24 +16,48 @@ void shapeCTor(SHAPE* const THIS, int IX_T, int IY_T)
     THIS->IY = IY_T;
 }
 
+int shapeGetX(SHAPE* const THIS)
+{
+    return THIS->IX;
+}
+
+int shapeGetY(SHAPE* const THIS)
+{
+    return THIS->IY;
+}
+
 void shapeMoveBy(SHAPE* const THIS, int IX_T, int IY_T)
 {
     THIS->IX += IX_T;
     THIS->IY += IY_T;
 }
 
+static int shape_Area_(SHAPE const* const THIS)
+{
+    assert(0);
+    return 0U;
+}
+
+static void shape_Draw_(SHAPE const* const THIS)
+{
+    assert(0);
+}
+
 SHAPE const* areaMax(SHAPE const* ShapeArr[], int ILengthShape)
 {
-    SHAPE const* ShapeMax = (SHAPE*)0;
-    int IMax = 0;
-    for (int i = 0; i < ILengthShape; i++)
+    SHAPE const *ShapeMax = (SHAPE *)0;
+    if (!ILengthShape)
     {
-        int IArea = shapeArea(ShapeArr[i]); // Gọi hàm ảo ở đây nè ^-^
-        if (IArea > IMax)
+        int IMax = 0;
+        for (int i = 0; i < ILengthShape; i++)
         {
-            IMax = IArea;
-            ShapeMax = ShapeArr[i];
-        }
+            int IArea = shapeArea(ShapeArr[i]); // Gọi hàm ảo ở đây nè ^-^
+            if (IArea > IMax)
+            {
+                IMax = IArea;
+                ShapeMax = ShapeArr[i];
+            }
+        }        
     }
     return ShapeMax;
 }
